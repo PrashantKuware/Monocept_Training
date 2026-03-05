@@ -50,7 +50,6 @@ public class studentPerformanceHeatmap {
 
         System.out.println("\nTotal Distinctions: " + distinctionCount);
 
-        // Calculate subject with highest average
         double highestAverage = 0;
         int highestSubjectIndex = 0;
 

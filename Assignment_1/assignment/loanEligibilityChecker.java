@@ -19,7 +19,7 @@ public class loanEligibilityChecker {
 
             System.out.print("Applicant " + i + ": ");
 
-            // Rejection Conditions
+            
             if (creditScores[i] < 600 ||
                 monthlyIncomes[i] < 25000 ||
                 existingLoans[i] >= 3) {
@@ -31,7 +31,7 @@ public class loanEligibilityChecker {
 
                 approvalCount++;
 
-                // Instant Approval
+                
                 if (creditScores[i] >= 800 &&
                     monthlyIncomes[i] > 100000) {
 
@@ -41,7 +41,7 @@ public class loanEligibilityChecker {
                     System.out.println("Standard Review");
                 }
 
-                // Track Best Applicant (highest credit score)
+                
                 if (creditScores[i] > highestCreditScore) {
                     highestCreditScore = creditScores[i];
                     bestApplicantIndex = i;

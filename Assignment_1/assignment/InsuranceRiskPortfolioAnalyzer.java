@@ -24,7 +24,7 @@ public class InsuranceRiskPortfolioAnalyzer {
                 maxRiskIndex = i;
             }
 
-            // Classification Logic
+            
             if (ages[i] < 25 && riskScores[i] > 70) {
                 System.out.println("Customer " + i + ": High Risk Youth");
                 highRiskYouthCount++;
