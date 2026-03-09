@@ -11,7 +11,7 @@ package com.encapsulation.second.model;
 	    {
 	    	if(claimAmount <= 0)
 				{
-	    		System.out.println("Enter valid number (greater than 0).");
+	    			System.out.println("Enter valid number (greater than 0).");
 				}
 				
 

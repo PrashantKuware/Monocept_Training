@@ -14,6 +14,7 @@ public class Main {
 		Game game= new Game(human, computer);
 		game.start();
 		scanner.close();
+		
 	}
 
 }

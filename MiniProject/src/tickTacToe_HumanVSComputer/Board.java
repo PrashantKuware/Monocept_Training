@@ -12,9 +12,10 @@ public class Board
 	
 	public void initializeBoard()
 	{
-		for(int i=0;i<0;i++)
+		for(int i=0;i<9;i++)
 		{
 			board[i] = (char)('1'+i);
+			
 		}
 	}
 	
@@ -26,7 +27,7 @@ public class Board
 		System.out.println(" "+board[3]+" | "+board[4]+" | "+board[5]);
 		System.out.println("---|---|---");
 		System.out.println(" "+board[6]+" | "+board[7]+" | "+board[8]);
-		System.out.println("---|---|---");
+		System.out.println("___|___|___");
 		System.out.println();
 	}
 	
