@@ -1,4 +1,4 @@
-package file_handling.CharacterStreamClasses;
+package com.file_handling.CharacterStreamClasses;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import java.io.IOException;
 	{
 		try
 		{
-			FileReader reader = new FileReader("D://Programs//Monocept_Training//file_handling//src//file_handling//example.txt");
+			FileReader reader = new FileReader("D://Programs//Monocept_Training//Assignment//src//com//file_handling//example.txt");
 			int ch;
 			while((ch = reader.read()) != -1)
 			{

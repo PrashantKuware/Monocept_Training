@@ -1,4 +1,4 @@
-package String;
+package com.String;
 
 import java.util.Arrays;
 import java.util.Scanner;

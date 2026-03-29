@@ -1,4 +1,4 @@
-package file_handling.CharacterStreamClasses;
+package com.file_handling.CharacterStreamClasses;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

@@ -1,5 +1,5 @@
 package com.Inheritance.second.test;
-import com.Inheritance.second.model.*;
+import com.inheritance.second.model.*;
 
 public class PayrollApp {
 

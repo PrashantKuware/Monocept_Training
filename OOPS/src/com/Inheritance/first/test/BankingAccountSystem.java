@@ -1,7 +1,5 @@
 package com.Inheritance.first.test;
 
-import com.Inheritance.first.model.*;
-
 import java.util.Scanner;
 
 public class BankingAccountSystem {
@@ -65,8 +63,7 @@ public class BankingAccountSystem {
 
 			int task;
 
-			while (true) 
-			{
+			while (true) {
 				if (!scanner.hasNextInt()) {
 					System.out.println("invalid input. Please enter 3 or 4");
 					scanner.nextLine();

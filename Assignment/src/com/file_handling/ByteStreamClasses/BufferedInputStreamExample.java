@@ -1,4 +1,4 @@
-package file_handling.ByteStreamClasses;
+package com.file_handling.ByteStreamClasses;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -8,7 +8,7 @@ public class BufferedInputStreamExample
 	public static void main(String[] args) throws Exception {
 
         BufferedInputStream bis =
-                new BufferedInputStream(new FileInputStream("D://Programs//Monocept_Training//file_handling//src//file_handling//example.txt"));
+                new BufferedInputStream(new FileInputStream("D://Programs//Monocept_Training//Assignment//src//com//file_handling//example.txt"));
 
         int data;
 

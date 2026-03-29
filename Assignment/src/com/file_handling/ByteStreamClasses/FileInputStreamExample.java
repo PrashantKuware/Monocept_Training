@@ -1,4 +1,4 @@
-package file_handling.ByteStreamClasses;
+package com.file_handling.ByteStreamClasses;
 import java.io.FileInputStream;
 import java.io.IOException;
 

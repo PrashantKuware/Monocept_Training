@@ -1,4 +1,4 @@
-package file_handling.CharacterStreamClasses;
+package com.file_handling.CharacterStreamClasses;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ public class FileWriterExample {
 		 
 		 try
 		 {
-			 FileWriter writer = new FileWriter("D://Programs//Monocept_Training//file_handling//src//file_handling//example.txt");
+			 FileWriter writer = new FileWriter("D://Programs//Monocept_Training//Assignment//src//com//file_handling//example.txt");
 			 writer.write(data);
 			 writer.close();  
 			 System.out.println("Successfully wrote to the file.");
