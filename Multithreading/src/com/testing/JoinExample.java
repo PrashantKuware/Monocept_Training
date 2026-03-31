@@ -1,6 +1,6 @@
 package com.testing;
 
-public class joinExample extends Thread
+public class JoinExample extends Thread
 {
 	static Thread mainThread;
 
@@ -8,7 +8,8 @@ public class joinExample extends Thread
 	{
 		
 		try
-		{ mainThread.join();
+		{ 
+			mainThread.join();
 			for(int i=0;i<5;i++)
 			{
 				System.out.println("child thread : " +i);
@@ -24,13 +25,18 @@ public class joinExample extends Thread
 	public static void main(String[] args) throws InterruptedException
 	{
 		 mainThread = Thread.currentThread();
-		joinExample j = new joinExample();
-		j.start();
+		JoinExample j = new JoinExample();
 //		j.join();
+		j.start();
+		
 		try
 		{
 			for(int i=0;i<5;i++)
 			{
+				if(i==2)
+				{
+					j.join();
+				}
 				System.out.println("parent thread : " +i);
 				sleep(1000);
 			}

@@ -39,10 +39,10 @@ public class createThread
 		myThread1 t2 = new myThread1();
 //		t.start();
 		
-//		t.run();
+//		t1.run();
 		
 		t1.start();
-		t2.start();
+		t1.start();
 		
 		System.out.println("main Thread Executing...");
 	}
