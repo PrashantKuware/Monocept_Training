@@ -59,4 +59,26 @@ public class InventoryService
 			 double value = strategy.calculate(new ArrayList<>(inventory.values()));
 			    System.out.println("Total inventory value: " + value);
 	}
+		 
+		 public void viewAllProducts() {
+
+			    if (inventory.isEmpty()) {
+			        System.out.println("Inventory is empty.");
+			        return;
+			    }
+
+			    System.out.println("\n===== Available Products =====");
+
+			    for (Product p : inventory.values()) 
+			    {
+			        System.out.println("----------------------------");
+			        System.out.println("Product Name : " + p.getname());
+			        System.out.println("Quantity     : " + p.getQuantity());
+			        System.out.println("Price        : " + p.getPrice());
+			        System.out.println("Reorder Level or Minimum Quantity : " + p.getMinQuantity());
+			        System.out.println("Maximum Quantity: " + p.getMaxQuantity());
+			    }
+
+			    System.out.println("----------------------------");
+			}
 }

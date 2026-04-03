@@ -33,8 +33,9 @@ import com.InventoryManagementSystem.strategy.ValuationStrategy;
                 System.out.println();
                 System.out.println("1. Add Product");
                 System.out.println("2. Remove Stock");
-                System.out.println("3. View Inventory Value (FIFO)");
-                System.out.println("4. Exit");
+                System.out.println("3. View Inventory Value");
+                System.out.println("4. View All Products");
+                System.out.println("5. Exit");
                 System.out.print("Enter choice: ");
 
                 int choice = sc.nextInt();
@@ -88,7 +89,7 @@ import com.InventoryManagementSystem.strategy.ValuationStrategy;
                         System.out.print("Product is Perishable : true/false ");
                         boolean isPerishable = sc.nextBoolean();
 
-                        if (isPerishable != true || isPerishable != false) 
+                        if (isPerishable != true && isPerishable != false) 
                         {
                             throw new IllegalArgumentException("Reorder level cannot be negative");
                         }
@@ -121,12 +122,16 @@ import com.InventoryManagementSystem.strategy.ValuationStrategy;
                         // View Inventory Value
                         service.calculateInventoryValue(new ValuationStrategy());
                         break;
-
+        
                     case 4:
+                        service.viewAllProducts();
+                        break;
+                        
+                    case 5:
                         System.out.println("Exiting system...");
                         sc.close();
                         System.exit(0);
-
+                        
                     default:
                         System.out.println("Invalid choice. Please try again.");
                 }

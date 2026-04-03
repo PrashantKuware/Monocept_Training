@@ -8,7 +8,7 @@ public class ValuationStrategy
 {
 	 public double calculate(List<Product> products) {
 	        return products.stream()
-	                .mapToDouble(p -> p.getPrice() * p.getQuantity())
+	                .mapToDouble(product -> product.getPrice() * product.getQuantity())
 	                .sum();
 	    }
 }
