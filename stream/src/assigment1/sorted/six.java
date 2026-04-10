@@ -1,31 +1,31 @@
 package assigment1.sorted;
 import java.util.*;
 
-class Product 
+class Student 
 {
     String name;
-    int price;
+    int marks;
 
-    Product(String name, int price) {
+    Student(String name, int marks) {
         this.name = name;
-        this.price = price;
+        this.marks = marks;
     }
 }
 
 
  class six {
     public static void main(String[] args) {
-        List<Product> list = Arrays.asList(
-            new Product("Karan", 50),
-            new Product("Manish", 234),
-            new Product("Ram", 65),
-            new Product("Lala", 267),
-            new Product("Ganesh", 98),
-            new Product("Ramesh", 56)
+        List<Student> list = Arrays.asList(
+            new Student("Karan", 50),
+            new Student("Manish", 234),
+            new Student("Ram", 65),
+            new Student("Lala", 267),
+            new Student("Ganesh", 98),
+            new Student("Ramesh", 56)
         );
 
         list.stream()
-            .sorted((p1, p2) -> p1.price - p2.price)
-            .forEach(p -> System.out.println(p.name + " " + p.price));
+            .sorted((p1, p2) -> p1.marks - p2.marks)
+            .forEach(p -> System.out.println(p.name + " " + p.marks));
     }
 }

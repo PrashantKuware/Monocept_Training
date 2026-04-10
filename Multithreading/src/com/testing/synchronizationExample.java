@@ -5,7 +5,7 @@ class moviesBookApp
 	int total_seat = 10;
 	synchronized public void bookSeat(int seat)
 	{
-		if(total_seat > seat)
+		if(total_seat >= seat)
 		{
 			total_seat = total_seat-seat;
 			System.out.println("ticket booked successfully ");
@@ -32,7 +32,7 @@ public class synchronizationExample extends Thread
 	{
 		b = new moviesBookApp();
 		synchronizationExample t1 = new synchronizationExample();
-		t1.seat=40;
+		t1.seat=10;
 		t1.start();
 		
 //		sleep(10);

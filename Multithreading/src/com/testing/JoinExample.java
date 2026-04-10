@@ -9,7 +9,7 @@ public class JoinExample extends Thread
 		
 		try
 		{ 
-			mainThread.join();
+			
 			for(int i=0;i<5;i++)
 			{
 				System.out.println("child thread : " +i);
@@ -26,17 +26,14 @@ public class JoinExample extends Thread
 	{
 		 mainThread = Thread.currentThread();
 		JoinExample j = new JoinExample();
-//		j.join();
+		
 		j.start();
+		j.join();
 		
 		try
 		{
 			for(int i=0;i<5;i++)
 			{
-				if(i==2)
-				{
-					j.join();
-				}
 				System.out.println("parent thread : " +i);
 				sleep(1000);
 			}

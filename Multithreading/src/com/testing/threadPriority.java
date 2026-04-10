@@ -19,11 +19,13 @@ public class threadPriority
 		low.setName("low_Priority_Thread");
 		high.setName("high_priority_Thread");
 		
+		
+		high.setPriority(10);
 		low.setPriority(1);
-		high.setPriority(6);
 		
 		low.start();
 		high.start();
+	
 	}
 
 }

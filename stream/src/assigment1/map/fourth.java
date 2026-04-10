@@ -28,9 +28,9 @@ public class fourth
 				);
 		
 		list.stream().map(p -> {
-			if(p.gender == 'F') return "Ms."+p.name;
+			if(p.gender == 'F') return "Ms. "+p.name;
 			else 
-				return "Mr."+p.name;
+				return "Mr. "+p.name;
 		}).forEach(p -> System.out.println(p));
 	}
 

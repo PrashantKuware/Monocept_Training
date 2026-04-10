@@ -5,11 +5,16 @@ package com.testing;
 	int total=0;
 	public void run()
 	{
-		for(int i=0;i<10;i++)
+		synchronized(this)
 		{
-			total = total+150;
-			
+			for(int i=0;i<10;i++)
+			{
+				total = total+5;
+				
+			}
+			this.notify();
 		}
+		
 	}
 }
 
@@ -20,15 +25,21 @@ public class interThreadCommunication
 		totalEarning te = new totalEarning();
 		Thread t = new Thread(te);
 		
+		System.out.println(te.total);
+		t.setPriority(10);
 		t.start();
-		try
+		
+		synchronized(t)
 		{
-			Thread.sleep(10);
+			try {
+				t.wait();
+			} catch (InterruptedException e) {
+				
+				e.printStackTrace();
+			}
+			
 		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
+		
 		System.out.println(te.total);
 	}
 }
