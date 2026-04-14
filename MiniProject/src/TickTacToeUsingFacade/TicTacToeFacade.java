@@ -20,13 +20,23 @@ public class TicTacToeFacade
 
         while (true) 
         {
+        	int choice;
+        	while (true) {
 
-            System.out.println("\n===== TIC TAC TOE =====");
-            System.out.println("Select Mode:");
-            System.out.println("1. Human vs Human");
-            System.out.println("2. Human vs Computer");
+        		   System.out.println();
+        	    System.out.println("Select Mode:");
+        	    System.out.println("1. Human vs Human");
+        	    System.out.println("2. Human vs Computer");
 
-            int choice = scanner.nextInt();
+        	    String tempChoice = scanner.nextLine().trim();
+
+        	    if (tempChoice.matches("[12]")) {
+        	        choice = Integer.parseInt(tempChoice);
+        	        break;
+        	    } else {
+        	        System.out.println("❌ Invalid input! Please enter 1 or 2.");
+        	    }
+        	}
 
             board = new Board();
 

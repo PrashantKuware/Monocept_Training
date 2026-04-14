@@ -1,0 +1,72 @@
+#1
+select ENAME from emp order by ENAME asc;
+#2
+select * from emp where DEPTNO in (10, 20);
+#3 
+select ENAME from emp where job = "Manager";
+#4
+select ENAME from emp where SAL between 2000 AND 5000;
+#5
+select ENAME from emp where COMM is null;
+#6
+select ENAME, JOB, SAL, COMM, (SAL + ifnull(COMM, 0)) as CTC from emp;
+#7
+select ENAME, JOB, HIREDATE, TIMESTAMPDIFF(YEAR, HireDate, CURDATE()) as TENURE from emp;   #in years
+select ENAME, JOB, HIREDATE, TIMESTAMPDIFF(MONTH, HireDate, CURDATE()) as TENURE from emp;   #in months
+select ENAME, JOB, HIREDATE, TIMESTAMPDIFF(DAY, HireDate, CURDATE()) as TENURE from emp;   #in days
+select ENAME, JOB, HIREDATE, DATEDIFF( CURDATE(), HIREDATE) as TENURE from emp;   #in days
+
+#8
+select ENAME, JOB from emp where ENAME like "s%";
+#9
+select distinct DEPTNO from emp;
+#10
+select lower(concat(ENAME,' ',JOB)) as FULLNAME, upper(JOB) from emp;
+#11
+select ENAME, JOB, SAL from emp order by SAL desc limit 3;
+#12
+select ENAME, JOB from emp where DEPTNO = 10 and JOB in ('clerk', 'manager');
+#13
+select ENAME, JOB, DEPTNO from emp where JOB = 'clerk' order by DEPTNO asc;
+#16
+select ENAME, JOB from emp where DEPTNO = (select DEPTNO from emp where ENAME='SCOTT'); 
+#17
+select ENAME, JOB from emp where JOB = (select JOB from emp where ENAME = 'SMITH');
+#18
+SELECT * FROM emp WHERE mgr = (SELECT empno FROM emp WHERE ename = 'KING');
+#19
+select ENAME from emp where SAL = (select SAL from emp where ENAME = 'BLAKE');
+#20
+select DEPTNO, count(*) as Total_Emp from emp group by DEPTNO;
+#21
+select JOB, count(*) as Total_Emp from emp group by Job;
+#22 IMP
+SELECT deptno, job, COUNT(*) AS total_employees from emp group by deptno, job;
+#23
+select deptno, COUNT(*) AS total_employees from emp group by deptno having count(*) > 3;
+#24
+select Job, count(*) AS total_employees from emp group by job having count(*) > 3;
+#25
+select ename, job, loc from emp e join dept d on e.deptno = d.deptno; 
+#26
+select d.deptno, d.dname, e.ename from emp e join dept d on e.deptno = d.deptno;
+#27
+select d.dname from emp e right join dept d on e.deptno = d.deptno where e.empno is null;
+#28
+select d.dname, count(e.empno) as total_emp from dept d join emp e on e.deptno = d.deptno group by d.dname having count(e.empno) > 3 order by d.dname desc;
+#29
+select e.ename as Emp_Name, m.ename as Manager_Name
+from emp e join emp m on e.mgr = m.empno
+#30
+select e.ename as EmpName, d.dname as DeptName, m.ename as BossName
+from emp e join dept d on e.deptno = d.deptno
+left join emp m on e.mgr = m.empno
+order by m.ename as BossName;
+#31
+select d.dname,
+       e.ename as employee_name,
+       m.ename as manager_name
+from emp e
+join dept d on e.deptno = d.deptno
+left join emp m on e.mgr = m.empno;
+
