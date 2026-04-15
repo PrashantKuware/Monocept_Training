@@ -43,6 +43,14 @@ A console-based Tic-Tac-Toe game implemented using the GoF Facade Pattern, desig
 ## Program Flow
 <img width="550" height="350" alt="image" src="https://github.com/user-attachments/assets/581e0adb-768a-4915-a5cd-e51dacb77921" />
 
+## UML Arrow Notation Guide
+
+| Symbol | Type | Description |
+|--------|------|------------|
+| `──▶` | Association | Field/reference relationship |
+| `──▷` | Inheritance | Class extends another class |
+| `╌╌▷` | Implementation | Class implements interface |
+| `╌╌▶` | Dependency | Temporary usage (method-level) |
 
 ## UML Class Digram
 <img width="2498" height="1560" alt="tick_tack_toe_facade" src="https://github.com/user-attachments/assets/e9f28595-a21a-43d2-aeff-93cec596d3c5" />
