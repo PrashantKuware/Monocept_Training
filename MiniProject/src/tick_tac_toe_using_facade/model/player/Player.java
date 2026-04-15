@@ -1,7 +1,9 @@
-package TickTacToeUsingFacade;
+package tick_tac_toe_using_facade.model.player;
+
+import tick_tac_toe_using_facade.model.Board;
 
 public abstract class Player {
-    protected char symbol;
+    private char symbol;
 
     public Player(char symbol) {
         this.symbol = symbol;
