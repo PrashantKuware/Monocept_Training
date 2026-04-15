@@ -4,14 +4,14 @@
 A console-based Tic-Tac-Toe game implemented using the GoF Facade Pattern, designed with clean architecture, modularity, and scalability in mind.
 
 ## Overview
--TicTacToeFacade acts as the main orchestration layer (entry point to game logic)
--Menu handles mode selection and user interaction
--Facade exposes simple APIs:
-  -startGame() → internally manages:
-     -Human vs Human
-     -Human vs Computer
--Board, Player, and validation classes manage core gameplay
--Input handling and validation are decoupled for flexibility and reuse
+- TicTacToeFacade acts as the main orchestration layer (entry point to game logic)
+- Menu handles mode selection and user interaction
+- Facade exposes simple APIs:
+  - startGame() → internally manages:
+     - Human vs Human
+     - Human vs Computer
+- Board, Player, and validation classes manage core gameplay
+- Input handling and validation are decoupled for flexibility and reuse
 
 ## Package Breakdown
 
@@ -38,35 +38,8 @@ A console-based Tic-Tac-Toe game implemented using the GoF Facade Pattern, desig
 
 ## Package Structure
 
-tick_tac_toe
-│
-├── model/
-│   ├── Board.java
-│   ├── GameState.java
-│
-│   ├── facade/
-│   │   ├── TicTacToeFacade.java
-│   │   └── Menu.java
-│
-│   ├── player/
-│   │   ├── Player.java
-│   │   ├── HumanPlayer.java
-│   │   └── ComputerPlayer.java
-│
-│   ├── io/
-│   │   └── InputReader.java
-│
-│   ├── validation/
-│   │   ├── InputValidator.java
-│   │   ├── GameValidator.java
-│   │   └── CellMapper.java
-│
-│   ├── exception/
-│   │   ├── InvalidInputException.java
-│   │   └── InvalidMoveException.java
-│
-└── test/
-    └── GameStarter.java
+<img width="875" height="736" alt="image" src="https://github.com/user-attachments/assets/1154223f-3e87-4770-a90f-2947594c43cd" />
+
 
 ## UML Class Digram
 <img width="2498" height="1560" alt="tick_tack_toe_facade" src="https://github.com/user-attachments/assets/e9f28595-a21a-43d2-aeff-93cec596d3c5" />
