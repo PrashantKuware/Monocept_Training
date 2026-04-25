@@ -78,13 +78,13 @@ public class AppliedValidation
                 int choice = scanner.nextInt();
                 scanner.nextLine();
 
-                if (choice >= 1 && choice <= 11) 
+                if (choice >= 1 && choice <= 16) 
                 {
                     return choice;
                 } 
                 else 
                 {
-                    System.out.println("Choice must be between (1 to 11)") ;
+                    System.out.println("Choice must be between (1 to 16)") ;
                 }
 
             } 

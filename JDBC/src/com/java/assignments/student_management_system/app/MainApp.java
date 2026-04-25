@@ -29,7 +29,12 @@ public class MainApp
             System.out.println("8. Delete Student");
             System.out.println("9. High Paying Students Report");
             System.out.println("10. Course-wise Student Count");
-            System.out.println("11. Exit");
+            System.out.println("11. Add new course");
+            System.out.println("12. Add new department");
+            System.out.println("13. Add new branch");
+            System.out.println("14. Show all courses");
+            System.out.println("15. Show all branches");
+            System.out.println("16. Exit");
             
             System.out.print("\nEnter your choice: ");
            
@@ -73,7 +78,7 @@ public class MainApp
 //                    String course = AppliedValidation.stringValidation(scanner);
                     String course = service.selectCourseHierarchy(scanner);
 
-                    System.out.print("Enter Fee: ");
+                    System.out.println();
                     double fee = AppliedValidation.feesValidation(scanner);
 
                     service.registerCourse(id, course, fee);
@@ -149,8 +154,26 @@ public class MainApp
                 {
                 	service.showCourseWiseCount();
                 }
+                
+                case 11 -> {
+                    System.out.print("Enter Course Name: ");
+                    String name = AppliedValidation.stringValidation(scanner);
+                    service.addCourse(name);
+                }
 
-                case 11 ->
+                case 12 -> {
+                    System.out.print("Enter Department Name: ");
+                    String name = AppliedValidation.stringValidation(scanner);
+                    service.addDepartment(name);
+                }
+
+                case 13 -> service.addBranch(scanner);
+
+                case 14 -> service.showCourses();
+
+                case 15 -> service.showBranches();
+                
+                case 16 ->
                 {
                     System.out.println("Exit Successfully");
                     scanner.close();

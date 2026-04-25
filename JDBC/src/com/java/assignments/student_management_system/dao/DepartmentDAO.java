@@ -34,4 +34,18 @@ public class DepartmentDAO
 
 	    return list;
 	}
+	
+	public boolean addDepartment(String name) {
+	    String sqlQuery = "INSERT INTO department(dept_name) VALUES (?)";
+
+	    try (Connection connection = DBUtil.getConnection();
+	         PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
+
+	        statement.setString(1, name);
+	        return statement.executeUpdate() > 0;
+
+	    } catch (Exception e) {
+	        return false;
+	    }
+	}
 }
