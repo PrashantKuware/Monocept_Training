@@ -1,4 +1,4 @@
-package arrayOfObject;
+package com.arrayOfObject;
 
 public class arrayObjecttest {
 	public static void main(String[] args) {

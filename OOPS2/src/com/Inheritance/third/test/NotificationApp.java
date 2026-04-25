@@ -1,11 +1,10 @@
 package com.Inheritance.third.test;
-import com.Inheritance.third.model.*;
 import java.util.Scanner;
 
-import com.inheritance.third.model.EmailNotification;
-import com.inheritance.third.model.Notification;
-import com.inheritance.third.model.PushNotification;
-import com.inheritance.third.model.SMSNotification;
+import com.Inheritance.third.model.EmailNotification;
+import com.Inheritance.third.model.Notification;
+import com.Inheritance.third.model.PushNotification;
+import com.Inheritance.third.model.SMSNotification;
 
 public class NotificationApp {
 

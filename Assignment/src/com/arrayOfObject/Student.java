@@ -1,4 +1,4 @@
-package arrayOfObject;
+package com.arrayOfObject;
 
 
 class Student {
