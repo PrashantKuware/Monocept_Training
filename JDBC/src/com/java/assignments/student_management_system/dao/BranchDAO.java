@@ -58,7 +58,7 @@ public class BranchDAO
 	public List<Branch> getAllBranches() {
 
 	    List<Branch> list = new ArrayList<>();
-	    String sqlQuery = "SELECT branch_id, distinct(branch_name) FROM branch";
+	    String sqlQuery = "SELECT * FROM branch";
 
 	    try (Connection connection = DBUtil.getConnection();
 	         PreparedStatement statement = connection.prepareStatement(sqlQuery);
