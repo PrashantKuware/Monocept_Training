@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Student Course Registration & Fee Management System
 
@@ -83,3 +84,6 @@ A console-based Student Course Registration & Fee Management System application 
 
 
 
+=======
+
+>>>>>>> 57508902c8886935bf7e25fed386aaabf1cc55a1
