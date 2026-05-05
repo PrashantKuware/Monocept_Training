@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/* Page Styling */
+
+body
+{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Form Container */
+
+form
+{
+    width: 420px;
+    margin: 50px auto;
+    padding: 35px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+}
+
+
+/* Heading */
+
+h3
+{
+    text-align: center;
+    color: #1565c0;
+    margin-bottom: 25px;
+    font-size: Xlarge;
+}
+
+h2
+{
+    text-align: center;
+    color: #1565c0;
+    margin-bottom: 25px;
+}
+
+
+/* Labels */
+
+label
+{
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* Input Fields */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select
+{
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    box-sizing: border-box;
+
+    transition: 0.3s;
+}
+
+
+/* Input Focus Effect */
+
+input:focus,
+select:focus
+{
+    border-color: #1976d2;
+
+    outline: none;
+
+    box-shadow: 0px 0px 6px rgba(25,118,210,0.4);
+}
+
+
+/* Button Styling */
+
+button
+{
+    width: 100%;
+
+    padding: 12px;
+
+    background-color: #1976d2;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/* Button Hover */
+
+button:hover
+{
+    background-color: #0d47a1;
+
+    transform: scale(1.02);
+}
+
+
+/* Placeholder Styling */
+
+::placeholder
+{
+    color: #888;
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 500px)
+{
+    form
+    {
+        width: 90%;
+        padding: 20px;
+    }
+}

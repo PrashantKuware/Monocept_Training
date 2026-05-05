@@ -30,7 +30,7 @@ public class StudentRegistration extends HttpServlet
 				|| course == null || course.trim().isEmpty() || course.equals("select"))
 		{
 //			out.print("<h3 style='color:red'>Invalid input </h3>");
-			 req.setAttribute("error", "Invalid input");
+			req.setAttribute("error", "Invalid input");
 			RequestDispatcher rd = req.getRequestDispatcher("/studentRegistration.jsp");
 			rd.forward(req, resp);
 			return;
