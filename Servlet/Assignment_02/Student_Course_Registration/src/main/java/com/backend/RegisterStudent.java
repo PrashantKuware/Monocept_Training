@@ -3,8 +3,11 @@ package com.backend;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,11 +19,10 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/register")
 public class RegisterStudent extends HttpServlet
 {
+	
+	
 	Connection connection;
-
-	String url = "jdbc:mysql://localhost:3306/servlet";
-	String user = "root";
-	String password = "root";
+	CrudQuries query = new CrudQuries(connection);
 	
 	@Override
 	public void init() throws ServletException
@@ -28,23 +30,19 @@ public class RegisterStudent extends HttpServlet
 		try
 		{
 			 Class.forName("com.mysql.cj.jdbc.Driver");
-			 connection = DriverManager.getConnection(url, user, password);
-			 System.out.println("Connection Created");
 		}
 		catch(ClassNotFoundException e)
 		{
 			System.out.println( e.getMessage());
 		} 
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-		}
+		
 	}
 	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
+		resp.setContentType("text/html");
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
 		String age = req.getParameter("age");
@@ -95,41 +93,34 @@ public class RegisterStudent extends HttpServlet
 			return;
 		}
 		
-		// *************************Operation *********************
 		
-
-		CrudQuries query = new CrudQuries(connection);
-		
-		// *************************Read all student *********************
-		
-		List<Student> studentList = query.getAllStudent();
-
-		req.setAttribute("students", studentList);
-
-		RequestDispatcher rd = req.getRequestDispatcher("/studentTable.jsp");
-
-		rd.forward(req, resp);
 		
 		// ************************* insert new student *********************
 		
-//		int count=query.inserNewStudent(name, email, tempAge, course, batch);
-//		{
-//			if (count > 0) {
-//				req.setAttribute("success", "Student register Successfully");
-//				RequestDispatcher rd = req.getRequestDispatcher("/studentForm.jsp");
-//				rd.forward(req, resp);
-//				return;
-//			} else {
-//				req.setAttribute("error", "Student is not registered");
-//				RequestDispatcher rd = req.getRequestDispatcher("/studentForm.jsp");
-//				rd.forward(req, resp);
-//				return;
-//			}
-//		}
+		int count = 0;
+		try 
+		{
+			count = query.inserNewStudent(name, email, tempAge, course, batch);
+		} 
+		catch (Exception e) 
+		{
+			
+			e.printStackTrace();
+		}
+		{
+			if (count > 0) {
+				req.setAttribute("success", "Student register Successfully");
+				RequestDispatcher rd = req.getRequestDispatcher("/studentForm.jsp");
+				rd.forward(req, resp);
+				return;
+			} else {
+				req.setAttribute("error", "Student is not registered");
+				RequestDispatcher rd = req.getRequestDispatcher("/studentForm.jsp");
+				rd.forward(req, resp);
+				return;
+			}
+		}
 		
-		// *************************update student student *********************
-		
-		// *************************delete student *********************
     }
 	
 	

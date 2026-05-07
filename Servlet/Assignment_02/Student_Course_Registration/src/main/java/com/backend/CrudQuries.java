@@ -7,9 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.backend.DBUtil;
+
 import jakarta.servlet.http.HttpServlet;
 
-public class CrudQuries extends HttpServlet {
+public class CrudQuries extends HttpServlet 
+{
 	private Connection connection;
 
 	public CrudQuries(Connection connection) {
@@ -18,24 +21,24 @@ public class CrudQuries extends HttpServlet {
 
 // 1. Print Student Table
 
-	public List<Student> getAllStudent()
+	public List<Student> getAllStudent() throws Exception
 	{
+		String sqlQuery = "select * from student";
 	    List<Student> students = new ArrayList<>();
 
-	    try
+	    try(Connection connection = DBUtil.getConnection();
+		         PreparedStatement statement = connection.prepareStatement(sqlQuery);
+		         ResultSet resultSet = statement.executeQuery())
 	    {
-	        PreparedStatement statement = connection.prepareStatement("select * from student");
 
-	        ResultSet result = statement.executeQuery();
-
-	        while(result.next())
+	        while(resultSet.next())
 	        {
 	            Student student = new Student(
-	                            result.getString("name"),
-	                            result.getString("email"),
-	                            result.getInt("age"),
-	                            result.getString("course"),
-	                            result.getString("batch")
+	            		resultSet.getString("name"),
+	            		resultSet.getString("email"),
+	            		resultSet.getInt("age"),
+	            		resultSet.getString("course"),
+	            		resultSet.getString("batch")
 	                    );
 
 	            students.add(student);
@@ -51,11 +54,13 @@ public class CrudQuries extends HttpServlet {
 	
 // 2. Insert a new student record into the student table.
 
-	public int inserNewStudent(String name, String email, int tempAge, String course, String batch) {
+	public int inserNewStudent(String name, String email, int tempAge, String course, String batch) throws Exception 
+	{
 		String sqlQuery2 = "insert into student values (?,?,?,?,?)";
 		int count = 0;
-		try {
-			PreparedStatement statement2 = connection.prepareStatement(sqlQuery2);
+		try(Connection connection = DBUtil.getConnection();
+        PreparedStatement statement2 = connection.prepareStatement(sqlQuery2))
+		{
 
 			statement2.setString(1, name);
 			statement2.setString(2, email);
@@ -73,31 +78,69 @@ public class CrudQuries extends HttpServlet {
 
 	// 3. Update the name of a student using their id.
 
-	public void studentUpdateUsingId(String course, String batch, String name) {
-		String sqlQuery8 = "update student set course = ?, batch=? where name = ?";
-
-		try (PreparedStatement statement8 = connection.prepareStatement(sqlQuery8)) {
-			statement8.setString(1, course);
-			statement8.setString(2, batch);
+	public int UpdateStudent( String name, String email, int age) throws Exception 
+	{
+		String sqlQuery8 = "update student set age = ?, email=? where name = ?";
+		int count = 0;
+		try (Connection connection = DBUtil.getConnection();
+				PreparedStatement statement8 = connection.prepareStatement(sqlQuery8)) 
+		{
+			statement8.setInt(1, age);
+			statement8.setString(2, email);
 			statement8.setString(3, name);
 
-			statement8.executeUpdate();
+			count=statement8.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return count;
 	}
 
 	// 4. Delete a student record using their id.
 
-	public void deleteStudentRecord(String name) {
-		String sqlQuery10 = "delete from student where studentid=?";
-
-		try (PreparedStatement statement10 = connection.prepareStatement(sqlQuery10)) {
+	public int deleteStudentRecord(String name) throws Exception 
+	{
+		String sqlQuery10 = "delete from student where name=?";
+		int count = 0;
+		try (Connection connection = DBUtil.getConnection();
+				PreparedStatement statement10 = connection.prepareStatement(sqlQuery10)) 
+		{
 			statement10.setString(1, name);
-			statement10.executeUpdate();
-		} catch (SQLException e) {
+			count=statement10.executeUpdate();
+		} catch (SQLException e) 
+		{
 			e.printStackTrace();
 		}
+		return count;
 	}
+	
+	// 4. check student is available or not.
+
+		public Student checkStudentAvailability(String name) throws Exception 
+		{
+			String sqlQuery10 = "select * from student where name=?";
+			
+			try (Connection connection = DBUtil.getConnection();
+					PreparedStatement statement = connection.prepareStatement(sqlQuery10)) 
+			{
+				statement.setString(1, name);
+				ResultSet resultSet = statement.executeQuery();
+
+	            if (resultSet.next()) 
+	            {
+	                return new Student(
+	                        resultSet.getString("name"),
+	                        resultSet.getString("email"),
+	                        resultSet.getInt("age"),
+	                        resultSet.getString("course"),
+	                        resultSet.getString("batch"));
+	            } 
+			}
+	            catch (SQLException e) 
+	            {
+	            	e.printStackTrace();
+	            }
+			return null;
+			}	
 
 }
