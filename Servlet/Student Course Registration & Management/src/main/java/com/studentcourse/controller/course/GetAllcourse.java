@@ -1,9 +1,10 @@
-package com.backend;
+package com.studentcourse.controller.course;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
+
+import com.studentcourse.dao.CourseDAO;
+import com.studentcourse.model.Course;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -12,14 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/getallatudent")
-public class GetAllStudent extends HttpServlet
+@WebServlet("/getallcourses")
+public class GetAllcourse extends HttpServlet
 {
-	Connection connection;
-	CrudQuries query = new CrudQuries(connection);
+
+	CourseDAO coursedao = new CourseDAO();
 	
-	@Override
 	public void init() throws ServletException
 	{
 		try
@@ -36,38 +35,24 @@ public class GetAllStudent extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
+		resp.setContentType("text/html");
 		
-		
-		List<Student> studentList = null;
-		try {
-			studentList = query.getAllStudent();
+		List<Course> courseList = null;
+		try 
+		{
+			courseList = coursedao.getAllCourse();
 		} 
 		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}
 
-		req.setAttribute("students", studentList);
-
-		RequestDispatcher rd = req.getRequestDispatcher("/studentTable.jsp");
+		req.setAttribute("courses", courseList);
+	
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/course/course-list.jsp");
 
 		rd.forward(req, resp);
 	}
 	
-	@Override
-	public void destroy()
-	{
-		try
-		{
-			if(connection != null)
-			{
-				connection.close();
-				 System.out.println("Connection Closed");
-			}
-		}
-		catch(SQLException e)
-		{
-			System.out.println( e.getMessage());
-		}
-	}
+	
 }

@@ -19,7 +19,8 @@ public class Student extends HttpServlet {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 
-		if (email.equals("alpha@gmail.com") && password.equals("alpha123")) {
+		if (email.equals("alpha@gmail.com") && password.equals("1234")) 
+		{
 			HttpSession session = req.getSession();
 			session.setAttribute("nameSet", nameGet);
 
@@ -28,7 +29,9 @@ public class Student extends HttpServlet {
 			rd.forward(req, resp);
 			System.out.println(session.getId());
 			return;
-		} else {
+		} 
+		else 
+		{
 			req.setAttribute("error", "EmailId or password doesn't match");
 			RequestDispatcher rd = req.getRequestDispatcher("/student.jsp");
 			rd.forward(req, resp);

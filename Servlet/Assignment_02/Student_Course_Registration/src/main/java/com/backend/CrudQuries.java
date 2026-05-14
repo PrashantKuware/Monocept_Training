@@ -15,7 +15,8 @@ public class CrudQuries extends HttpServlet
 {
 	private Connection connection;
 
-	public CrudQuries(Connection connection) {
+	public CrudQuries(Connection connection) 
+	{
 		this.connection = connection;
 	}
 
