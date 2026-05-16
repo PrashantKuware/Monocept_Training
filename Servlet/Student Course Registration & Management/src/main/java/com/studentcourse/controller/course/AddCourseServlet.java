@@ -16,6 +16,7 @@ public class AddCourseServlet extends HttpServlet
 {
 	CourseDAO coursedao = new CourseDAO();
 	
+	
 	@Override
 	public void init() throws ServletException
 	{
@@ -87,7 +88,24 @@ public class AddCourseServlet extends HttpServlet
 			return;
 			
 		}
+		// ************************* checking duplicate course *********************
 		
+		 boolean exists=false;
+		try 
+		{
+			exists = coursedao.checkDuplicateCourse(courseName);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		 if(exists)
+         {
+             req.setAttribute( "error", "Course already registered");
+             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/course/New-course-enter.jsp");
+             rd.forward(req, resp);
+             return;
+         }
 		
 		
 		// ************************* insert  data *********************

@@ -139,6 +139,25 @@ public class StudentDAO
 		            	e.printStackTrace();
 		            }
 				return null;
-				}	
+				}
+
+			public boolean checkDuplicateStudent(String name, String email) throws Exception
+			{
+				String query11 = "select * from students " +
+					    "where student_name=? " +
+					    "and email=? ";
+
+					    try(Connection connection = DBConnection.getConnection();
+					    		PreparedStatement statement =connection.prepareStatement(query11))
+					    {
+					        statement.setString(1, name);
+
+					        statement.setString(2, email);
+
+					        ResultSet resultSet = statement.executeQuery();
+
+					        return resultSet.next();
+					    }
+			}	
 
 }

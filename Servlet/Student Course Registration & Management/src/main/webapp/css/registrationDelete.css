@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #f8fafc
+    );
+
+    padding: 20px;
+}
+
+/* Main Form Container */
+
+form{
+    width: 100%;
+    max-width: 550px;
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Heading */
+
+form h3{
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    font-size: 30px;
+
+    color: #1e293b;
+}
+
+/* Label */
+
+form label{
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #334155;
+}
+
+/* Dropdown */
+
+form select{
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    background-color: #f8fafc;
+
+    outline: none;
+
+    transition: 0.3s ease;
+
+    margin-bottom: 25px;
+}
+
+form select:focus{
+    border-color: #2563eb;
+
+    box-shadow: 0 0 8px rgba(37,99,235,0.35);
+}
+
+/* Button */
+
+form button{
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+form button:hover{
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        135deg,
+        #dc2626,
+        #b91c1c
+    );
+
+    box-shadow: 0 6px 14px rgba(220,38,38,0.3);
+}
+
+/* Error Message */
+
+.error-message{
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #dc2626;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+/* Success Message */
+
+.success-message{
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #16a34a;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+/* Responsive */
+
+@media(max-width: 600px){
+
+    form{
+        padding: 25px;
+    }
+
+    form h3{
+        font-size: 24px;
+    }
+
+    form label{
+        font-size: 16px;
+    }
+
+    form button{
+        font-size: 16px;
+    }
+}

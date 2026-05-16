@@ -76,7 +76,25 @@ public class AddStudentServlet extends HttpServlet
 			return;
 			
 		}
+		// ************************* check duplicate student *********************
 		
+		boolean exists = false;
+		try 
+		{
+			exists = studentdao.checkDuplicateStudent(name, email);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		
+		 if(exists)
+         {
+             req.setAttribute( "error", "Student already registered");
+             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/student/New-student-enter.jsp");
+             rd.forward(req, resp);
+             return;
+         }
 		
 		// ************************* insert updated data *********************
 		

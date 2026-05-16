@@ -44,7 +44,7 @@ public class Student
         return city;
     }
 
-    public int getid()
+    public int getId()
     {
         return id;
     }

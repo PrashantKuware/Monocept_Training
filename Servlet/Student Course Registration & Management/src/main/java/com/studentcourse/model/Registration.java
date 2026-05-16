@@ -1,48 +1,67 @@
 package com.studentcourse.model;
 
-public class Registration 
+public class Registration
 {
-		private int registration_id;
-	    private int student_id;
-	    private int course_id;
-	    private String date;
-	    private String status;
+    private int registrationId;
+    private int studentId;
+    private int courseId;
 
-	    public Registration(int registration_id,
-	    				int student_id,
-	                   int course_id,
-	                   String date,
-	                   String status)
-	    {
-	        this.registration_id = registration_id;
-	        this.student_id = student_id;
-	        this.course_id = course_id;
-	        this.date = date;
-	        this.status = status;
-	    }
+    private String studentName;
+    private String courseName;
 
-	    public int getRegId()
-	    {
-	        return registration_id;
-	    }
+    private String registrationDate;
+    private String status;
 
-	    public int getStudentId()
-	    {
-	        return student_id;
-	    }
+    public Registration(
+    	    int registrationId,
+    	    int studentId,
+    	    int courseId,
+    	    String registrationDate,
+    	    String studentName,
+    	    String courseName,
+    	    String status)
+    {
+        this.registrationId = registrationId;
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.registrationDate = registrationDate;
+        this.studentName = studentName;
+        this.courseName = courseName;
+        this.status = status;
+    }
 
-	    public int getCourseId()
-	    {
-	        return course_id;
-	    }
+    public int getRegistrationId()
+    {
+        return registrationId;
+    }
 
-	    public String getdate()
-	    {
-	        return date;
-	    }
+    public int getStudentId()
+    {
+        return studentId;
+    }
 
-	    public String getStatus()
-	    {
-	        return status;
-	    }
+    public int getCourseId()
+    {
+        return courseId;
+    }
+
+    public String getStudentName()
+    {
+        return studentName;
+    }
+
+    public String getCourseName()
+    {
+        return courseName;
+    }
+
+    public String getRegistrationDate()
+    {
+        return registrationDate;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
 }

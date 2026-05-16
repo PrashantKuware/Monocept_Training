@@ -1,100 +1,160 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java"
+    contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<title>Dashboard</title>
+
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/dashboard.css">
+
 </head>
+
 <body>
 
 <%
-String selectError = (String) session.getAttribute("selectError");
+String selectError =
+(String) session.getAttribute("selectError");
 
-String error = (String) request.getAttribute("error");
+String error =
+(String) request.getAttribute("error");
 
-String username = (String) session.getAttribute("userName");
+String username =
+(String) session.getAttribute("userName");
 
-Integer student = (Integer) request.getAttribute("studentCount");
+Integer student =
+(Integer) request.getAttribute("studentCount");
 
-Integer courses = (Integer) request.getAttribute("coursescount");
+Integer courses =
+(Integer) request.getAttribute("coursescount");
 
-Integer registration = (Integer) request.getAttribute("registration");
+Integer registration =
+(Integer) request.getAttribute("registration");
 %>
 
 <div class="container">
+
+    <!-- Heading -->
 
     <h2>
         Welcome to Student Portal :
         <span><%= username %></span>
     </h2>
 
+    <!-- Dashboard Cards -->
+
     <div class="dashboard-card">
 
         <div class="card">
-            <h3 >Total Students</h3>
+
+            <h3>Total Students</h3>
+
             <p><%= student %></p>
+
         </div>
 
         <div class="card">
+
             <h3>Total Courses</h3>
+
             <p><%= courses %></p>
+
         </div>
 
         <div class="card">
+
             <h3>Total Registrations</h3>
+
             <p><%= registration %></p>
+
         </div>
 
     </div>
 
-    <form action="parameter" method="post" class="course-form">
+    <!-- Form -->
 
-        <label for="course">
-            Choose an Option
-        </label>
+   <form action="parameter"
+      method="post"
+      class="course-form">
 
-        <select name="dashboardparameter" id="course">
+    <label for="course">
+        Choose an Option
+    </label>
 
-            <option value="select"> Select </option>
+    <select name="dashboardparameter"
+            id="course">
 
-            <option value="student">Open Student Section</option>
+        <option value="select">Select</option>
 
-            <option value="course">Open Course Section</option>
+        <option value="student">
+            Open Student Section
+        </option>
 
-            <option value="registration">Student-Course Registration Section</option>
+        <option value="course">
+            Open Course Section
+        </option>
 
-        </select>
+        <option value="registration">
+            Student-Course Registration Section
+        </option>
 
-        <button type="submit"> Submit </button>
+    </select>
 
-    </form>
+    <button type="submit">
+        Submit
+    </button>
 
-    <a href="logout" class="logout-btn"> Logout </a>
-<!-- Error Message -->
- <%
-    if(error != null)
-    {
-%>
+</form>
 
-<h3 style="color:red"><%= error %></h3>
+    <!-- Logout -->
+
+    <div class="logout-container">
+
+        <a href="logout"
+           class="logout-btn">
+
+            Logout
+
+        </a>
+
+    </div>
+
+    <!-- Error Message -->
 
 <%
-    }
-%>
-<!-- Select option Error Message -->
- <%
-    if(selectError != null)
-    {
+if(error != null)
+{
 %>
 
-<h3 style="color:red"><%= selectError %></h3>
+    <h3 class="error-message">
+        <%= error %>
+    </h3>
+
+<%
+}
+%>
+
+<!-- Select Error -->
+
+<%
+if(selectError != null)
+{
+%>
+
+    <h3 class="error-message">
+        <%= selectError %>
+    </h3>
 
 <%
 session.removeAttribute("selectError");
-    }
+}
 %>
+
 </div>
 
 </body>

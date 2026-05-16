@@ -137,6 +137,23 @@ public class CourseDAO
 		            	e.printStackTrace();
 		            }
 				return null;
-				}	
+				}
+
+			public boolean checkDuplicateCourse(String courseName) throws Exception 
+			{
+
+				String query = "select * from courses " +
+					    "where course_name=? " ;
+
+					    try(Connection connection = DBConnection.getConnection();
+					    		PreparedStatement statement =connection.prepareStatement(query))
+					    {
+					        statement.setString(1, courseName);
+
+					        ResultSet resultSet = statement.executeQuery();
+
+					        return resultSet.next();
+					    }
+			}	
 }
 

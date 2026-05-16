@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #f8fafc
+    );
+}
+
+form{
+    width: 100%;
+    max-width: 550px;
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+form h2{
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    color: #1e293b;
+
+    font-size: 30px;
+}
+
+label{
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: #334155;
+}
+
+select,
+input[type="date"]{
+    width: 100%;
+
+    padding: 14px 16px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    background-color: #f8fafc;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+select:focus,
+input[type="date"]:focus{
+    border-color: #2563eb;
+
+    box-shadow: 0 0 8px rgba(37,99,235,0.35);
+}
+
+button{
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    margin-top: 10px;
+}
+
+button:hover{
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #1e40af
+    );
+
+    box-shadow: 0 6px 14px rgba(37,99,235,0.35);
+}
+
+.error-message{
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #dc2626;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.success-message{
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #16a34a;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+@media(max-width: 600px){
+
+    form{
+        padding: 30px 20px;
+    }
+
+    form h2{
+        font-size: 24px;
+    }
+
+    select,
+    input[type="date"],
+    button{
+        font-size: 15px;
+    }
+}
