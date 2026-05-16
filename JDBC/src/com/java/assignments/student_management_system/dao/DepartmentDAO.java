@@ -35,7 +35,8 @@ public class DepartmentDAO
 	    return list;
 	}
 	
-	public boolean addDepartment(String name) {
+	public boolean addDepartment(String name) 
+	{
 	    String sqlQuery = "INSERT INTO department(dept_name) VALUES (?)";
 
 	    try (Connection connection = DBUtil.getConnection();
