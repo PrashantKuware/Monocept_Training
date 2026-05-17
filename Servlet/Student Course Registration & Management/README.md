@@ -49,14 +49,13 @@ This project allows the admin to manage students, courses, and course registrati
 
 
 
-## Project Structure
 
 ## Project Structure
 
-StudentCourseRegistrationSystem/
+```text
+StudentCourseRegistrationSystem
 │
 ├── src/main/java
-│   │
 │   └── com.studentcourse
 │       │
 │       ├── controller
@@ -154,6 +153,7 @@ StudentCourseRegistrationSystem/
 │   └── login.jsp
 │
 └── README.md
+```
 
 
 ## Package Breakdown
@@ -209,6 +209,12 @@ StudentCourseRegistrationSystem/
 - registration_date
 - status
 
+<img width="910" height="775" alt="Screenshot 2026-05-17 111041" src="https://github.com/user-attachments/assets/6663f379-cb68-4a2e-b786-744e4ec88582" />
+<img width="1694" height="909" alt="image" src="https://github.com/user-attachments/assets/9f100488-c5ef-443d-ab07-7e952919f74c" />
+<img width="1003" height="890" alt="image" src="https://github.com/user-attachments/assets/4b1105f3-1b43-465a-af7a-5ee995e3e625" />
+<img width="706" height="916" alt="image" src="https://github.com/user-attachments/assets/3363bb81-bc37-4cd3-a5f6-1685932a7fa1" />
+<img width="658" height="955" alt="image" src="https://github.com/user-attachments/assets/81c9e851-ca0e-4db5-8ef7-9b01a53b5313" />
+<img width="1710" height="580" alt="image" src="https://github.com/user-attachments/assets/47bf18ed-0ecc-4b36-bc3a-afc46d1890df" />
 
 
 
