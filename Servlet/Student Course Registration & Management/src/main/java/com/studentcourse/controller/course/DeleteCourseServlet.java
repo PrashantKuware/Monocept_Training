@@ -15,79 +15,78 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/deletecourse")
-public class DeleteCourseServlet extends HttpServlet
-{
+public class DeleteCourseServlet extends HttpServlet {
 	CourseDAO coursedao = new CourseDAO();
-	
+
 	@Override
-	public void init() throws ServletException
-	{
-		try
-		{
-			 Class.forName("com.mysql.cj.jdbc.Driver");
+	public void init() throws ServletException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
 		}
-		catch(ClassNotFoundException e)
-		{
-			System.out.println( e.getMessage());
-		} 
-		
+
 	}
-	
-	
+
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
-	{
-		String courseName = req.getParameter("coursename");
-		
-		
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String courseName = req.getParameter("coursename").trim().toUpperCase();
+
 		// *************************Checking course name *********************
-		if(courseName==null || courseName.trim().isEmpty())
-		{
+		if (courseName == null || courseName.trim().isEmpty()) {
 			req.setAttribute("error", "Invalid Course Name");
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/course/course-delete.jsp");
 			rd.forward(req, resp);
 			return;
 		}
-		
-	
-		
+
+		// ************************* check student registration in the course *********************
+		  boolean registered = false;
+		try {
+			registered = coursedao.isCourseRegistered(courseName);
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		 if(registered)
+         {
+             req.setAttribute("error", "Course cannot be deleted because students are registered in this course");
+             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/course/course-delete.jsp");
+             rd.forward(req, resp);
+             return;
+         }
+		 
 		// ************************* check availability and delete *********************
-		
+
 		Course course = null;
-		try 
-		{
+		try {
 			course = coursedao.checkCourseAvailability(courseName);
 		} 
-		catch (Exception e)
-		{
-			
+		catch (Exception e) {
+
 			e.printStackTrace();
 		}
 
-        if (course == null) 
-        {
+		if (course == null) {
 
 			req.setAttribute("error", "Course data is not available");
 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/course/course-delete.jsp");
 			rd.forward(req, resp);
 			return;
-        	
-        }
-        else 
-        {
-        	 try {
-        		 coursedao.deleteCourseRecord(courseName);
-			 } 
-        	 catch (Exception e) 
-        	 {
+
+		} 
+		else {
+			try {
+				coursedao.deleteCourseRecord(courseName);
+			} 
+			catch (Exception e) {
 				e.printStackTrace();
-			 }
-         	req.setAttribute("success", "Course deleted Successfully");
- 			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/course/course-delete.jsp");
- 			rd.forward(req, resp);
- 			return;
+			}
+			req.setAttribute("success", "Course deleted Successfully");
+			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/course/course-delete.jsp");
+			rd.forward(req, resp);
+			return;
 		}
-		
-		
-    }
+
+	}
 }

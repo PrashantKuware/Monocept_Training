@@ -40,7 +40,7 @@ public class UpdateRegistrationServlet extends HttpServlet
 			try
 	        {
 	            int registrationId = Integer.parseInt(req.getParameter("registrationId"));
-	            String status = req.getParameter("status");
+	            String status = req.getParameter("status").trim().toUpperCase();
 	            registrationdao.updateRegistrationStatus(registrationId, status);
 	            resp.sendRedirect("getallregistration");
 	        }

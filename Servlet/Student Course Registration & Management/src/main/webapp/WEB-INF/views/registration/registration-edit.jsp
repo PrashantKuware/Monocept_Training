@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 
 <title>Update Registration Status</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/registrationEdit.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/registrationEdit.css?v=<%= System.currentTimeMillis() %>">
 
 </head>
 
@@ -20,6 +20,18 @@
 <%
 List<Registration> registrations = (List<Registration>) request.getAttribute("registrations");
 %>
+
+<div class="top-buttons">
+
+    <a href="home" class="home-btn">
+        Home
+    </a>
+
+    <a href="logout" class="logout-btn">
+        Logout
+    </a>
+
+</div>
 
 <div class="container">
 
@@ -88,6 +100,7 @@ if(registrations != null)
     <button type="submit">  Update Status </button>
 
 </form>
+
 
 </div>
 

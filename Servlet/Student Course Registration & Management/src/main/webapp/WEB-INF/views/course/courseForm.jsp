@@ -5,10 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/studentForm.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/studentForm.css?v=<%= System.currentTimeMillis() %>">
 
 </head>
 <body>
+<!-- Top Buttons -->
+
+<div class="top-buttons">
+
+    <a href="home" class="home-btn">
+        Home
+    </a>
+
+    <a href="logout" class="logout-btn">
+        Logout
+    </a>
+
+</div>
+
 	<div class="container">
 
 		<form action="coursechoice" method="post" class="course-form">
@@ -39,6 +53,7 @@
 			
 			 <button type="submit"> Submit </button>
 		</form>
+		
 
 	</div>
 </body>

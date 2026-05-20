@@ -34,7 +34,7 @@ public class AddRegistrationServlet extends HttpServlet
 
 	            String registrationDate = req.getParameter("registrationDate");
 
-	            String status = req.getParameter("status");
+	            String status = req.getParameter("status").trim().toUpperCase();
 
 	            boolean exists = registrationDao.checkDuplicateRegistration(studentId, courseId);
 	            

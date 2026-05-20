@@ -35,10 +35,10 @@ public class AddCourseServlet extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		String courseName = req.getParameter("courseName");
-		String duration = req.getParameter("duration");
+		String courseName = req.getParameter("courseName").trim().toUpperCase();
+		String duration = req.getParameter("duration").trim().toUpperCase();
 		String fees = req.getParameter("fees");
-		String trainerName = req.getParameter("trainerName");
+		String trainerName = req.getParameter("trainerName").trim().toUpperCase();
 		
 		
 		// *************************Checking course, duration, fees, trainer should not be null or empty *********************

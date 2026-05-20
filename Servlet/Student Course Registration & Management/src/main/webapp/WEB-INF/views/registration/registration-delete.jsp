@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/registrationDelete.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/registrationDelete.css?v=<%= System.currentTimeMillis() %>">
 
 </head>
 <body>
@@ -17,6 +17,18 @@
 	String error = (String) request.getAttribute("error");
     String success = (String) request.getAttribute("success");
 %>
+
+<div class="top-buttons">
+
+    <a href="home" class="home-btn">
+        Home
+    </a>
+
+    <a href="logout" class="logout-btn">
+        Logout
+    </a>
+
+</div>
 
 	<form action="deleteregistration" method="post">
 	<h3>Delete Registration</h3>
@@ -58,6 +70,7 @@ if(registrations != null)
         </select>
 
  	<button type="submit">Submit</button>
+ 	
  	
  	<!-- Error Message -->
  <%

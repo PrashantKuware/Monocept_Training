@@ -34,11 +34,11 @@ public class AddStudentServlet extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		String name = req.getParameter("name");
-		String email = req.getParameter("email");
+		String name = req.getParameter("name").trim().toUpperCase();
+		String email = req.getParameter("email").trim().toLowerCase();
 		String age = req.getParameter("age");
 		String phone = req.getParameter("phone");
-		String city = req.getParameter("city");
+		String city = req.getParameter("city").trim().toUpperCase();
 		
 		
 		// *************************Checking name, Email *********************
@@ -65,6 +65,16 @@ public class AddStudentServlet extends HttpServlet
 		            rd.forward(req, resp);
 		            return;
 		}
+		// *************************Checking phone *********************
+		
+				if(!phone.matches("^(\\+91[-\\s]?)?[6-9][0-9]{9}$"))
+				{
+					req.setAttribute("error", "Invalid Phone No");
+					RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/student/New-student-enter.jsp");
+					rd.forward(req, resp);
+					return;
+					
+				}
 		
 		// *************************Checking age *********************
 		

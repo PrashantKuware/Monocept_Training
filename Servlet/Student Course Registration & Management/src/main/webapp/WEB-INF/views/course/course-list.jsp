@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/studentList.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/studentList.css?v=<%= System.currentTimeMillis() %>">
 
 </head>
 <body>
@@ -54,5 +54,19 @@
 %>
 
 </table>
+<!-- Top Buttons -->
+
+<div class="top-buttons">
+
+    <a href="home" class="home-btn">
+        Home
+    </a>
+
+    <a href="logout" class="logout-btn">
+        Logout
+    </a>
+
+</div>
+
 </body>
 </html>

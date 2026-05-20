@@ -12,7 +12,7 @@
 
 <title>Registration List</title>
 
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/studentList.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/studentList.css?v=<%= System.currentTimeMillis() %>">
 
 </head>
 
@@ -70,6 +70,19 @@ if(registrations != null)
 %>
 
     </table>
+
+
+<div class="top-buttons">
+
+    <a href="home" class="home-btn">
+        Home
+    </a>
+
+    <a href="logout" class="logout-btn">
+        Logout
+    </a>
+
+</div>
 
 </div>
 

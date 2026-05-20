@@ -93,21 +93,22 @@ public class CourseDAO
 
 			// 4. Delete a course record using their name.
 
-			public int deleteCourseRecord(String courseName) throws Exception 
+			public int deleteCourseRecord(String courseName)
+			        throws Exception
 			{
-				String sqlQuery10 = "delete from courses where course_name=?";
-				int count = 0;
-				try (Connection connection = DBConnection.getConnection();
-						PreparedStatement statement10 = connection.prepareStatement(sqlQuery10)) 
-				{
-					statement10.setString(1, courseName);
-					count=statement10.executeUpdate();
-				} 
-				catch (SQLException e) 
-				{
-					e.printStackTrace();
-				}
-				return count;
+			    String sqlQuery =
+			            "DELETE FROM courses WHERE course_name = ?";
+
+			    try(Connection connection =
+			                DBConnection.getConnection();
+
+			        PreparedStatement statement =
+			                connection.prepareStatement(sqlQuery))
+			    {
+			        statement.setString(1, courseName);
+
+			        return statement.executeUpdate();
+			    }
 			}
 			
 			// 4. check course is available or not.
@@ -155,5 +156,32 @@ public class CourseDAO
 					        return resultSet.next();
 					    }
 			}	
+			
+			public boolean isCourseRegistered(String courseName) throws Exception
+			{
+			    String sqlQuery =
+			            "SELECT COUNT(*) " +
+			            "FROM registrations r " +
+			            "JOIN courses c " +
+			            "ON r.course_id = c.course_id " +
+			            "WHERE c.course_name = ?";
+
+			    try(Connection connection = DBConnection.getConnection();
+
+			        PreparedStatement statement =
+			                connection.prepareStatement(sqlQuery))
+			    {
+			        statement.setString(1, courseName);
+
+			        ResultSet resultSet = statement.executeQuery();
+
+			        if(resultSet.next())
+			        {
+			            return resultSet.getInt(1) > 0;
+			        }
+			    }
+
+			    return false;
+			}
 }
 

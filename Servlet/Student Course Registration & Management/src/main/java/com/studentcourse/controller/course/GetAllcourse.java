@@ -44,6 +44,7 @@ public class GetAllcourse extends HttpServlet
 		} 
 		catch (Exception e) 
 		{
+			
 			e.printStackTrace();
 		}
 

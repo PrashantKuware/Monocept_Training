@@ -19,6 +19,10 @@ body{
                #f8fafc);
 }
 
+/* =========================
+   PAGE HEADING
+========================= */
+
 h2{
     text-align:center;
 
@@ -30,6 +34,10 @@ h2{
 
     font-weight:bold;
 }
+
+/* =========================
+   TABLE DESIGN
+========================= */
 
 table{
     width:90%;
@@ -82,6 +90,87 @@ table tr:hover{
     transition:0.3s;
 }
 
+/* =========================
+   BUTTON SECTION
+========================= */
+
+.top-buttons{
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+}
+
+/* =========================
+   COMMON BUTTON STYLE
+========================= */
+
+.home-btn,
+.logout-btn{
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   HOME BUTTON
+========================= */
+
+.home-btn{
+    background:linear-gradient(
+               135deg,
+               #10b981,
+               #059669);
+}
+
+.home-btn:hover{
+    transform:translateY(-2px);
+
+    background:linear-gradient(
+               135deg,
+               #059669,
+               #047857);
+}
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
+.logout-btn{
+    background:linear-gradient(
+               135deg,
+               #ef4444,
+               #dc2626);
+}
+
+.logout-btn:hover{
+    transform:translateY(-2px);
+
+    background:linear-gradient(
+               135deg,
+               #dc2626,
+               #b91c1c);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
 @media(max-width:768px){
 
     table{
@@ -97,5 +186,18 @@ table tr:hover{
 
     h2{
         font-size:28px;
+    }
+
+    .top-buttons{
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .home-btn,
+    .logout-btn{
+        width:200px;
+
+        text-align:center;
     }
 }
