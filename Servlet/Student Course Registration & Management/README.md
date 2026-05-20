@@ -211,10 +211,10 @@ StudentCourseRegistrationSystem
 
 <img width="910" height="775" alt="Screenshot 2026-05-17 111041" src="https://github.com/user-attachments/assets/6663f379-cb68-4a2e-b786-744e4ec88582" />
 <img width="1694" height="909" alt="image" src="https://github.com/user-attachments/assets/9f100488-c5ef-443d-ab07-7e952919f74c" />
-<img width="1003" height="890" alt="image" src="https://github.com/user-attachments/assets/4b1105f3-1b43-465a-af7a-5ee995e3e625" />
-<img width="706" height="916" alt="image" src="https://github.com/user-attachments/assets/3363bb81-bc37-4cd3-a5f6-1685932a7fa1" />
-<img width="658" height="955" alt="image" src="https://github.com/user-attachments/assets/81c9e851-ca0e-4db5-8ef7-9b01a53b5313" />
-<img width="1710" height="580" alt="image" src="https://github.com/user-attachments/assets/47bf18ed-0ecc-4b36-bc3a-afc46d1890df" />
+<img width="1893" height="973" alt="image" src="https://github.com/user-attachments/assets/8d34b218-aca3-4960-a308-1be7017eacf3" />
+<img width="1892" height="977" alt="image" src="https://github.com/user-attachments/assets/4e4dbd8a-ea00-4d8d-880f-557bfadddba5" />
+<img width="1883" height="922" alt="image" src="https://github.com/user-attachments/assets/a1ff783e-e941-4413-b7fe-37e7d536c5b8" />
+<img width="1801" height="653" alt="image" src="https://github.com/user-attachments/assets/0e7c0475-ebbc-40df-8977-e6ac6e4ac1aa" />
 
 
 
