@@ -1,0 +1,18 @@
+body{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: center;    
+}
+#mybtn{
+    font-size: 3em;
+    padding: 5px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(224, 225, 228);
+    transition: background-color 0.25;
+}
+#myLabel{
+    font-size: 3em;
+}
+#mybtn:active{
+    background-color : rgb(147, 143, 143)
+}
