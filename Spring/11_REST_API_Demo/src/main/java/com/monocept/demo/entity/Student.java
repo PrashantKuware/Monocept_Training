@@ -10,8 +10,17 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
 @Table(name="students")
 public class Student 
 {
@@ -34,58 +43,58 @@ public class Student
 	@Size(min=3, max=30, message="Department must be between 3 to 30 character")
 	String stdDepartment;
 
-	public Student(String stsName, int stdAge, String stdDepartment)
+	public Student(String stdName, int stdAge, String stdDepartment)
 	{
-		this.stdName = stsName;
-		this.stdAge = stdAge;
-		this.stdDepartment = stdDepartment;
-	}
-
-	public Student() {
-	}
-
-	
-
-	@Override
-	public String toString() {
-		return "Student [stdId=" + stdId + ", stsName=" + stdName + ", stdAge=" + stdAge + ", stdDepartment="
-				+ stdDepartment + "]";
-	}
-
-	public int getStdId() {
-		return stdId;
-	}
-
-	public void setStdId(int stdId) {
-		this.stdId = stdId;
-	}
-
-	
-	
-
-	public String getStdName() {
-		return stdName;
-	}
-
-	public void setStdName(String stdName) {
 		this.stdName = stdName;
-	}
-
-	public int getStdAge() {
-		return stdAge;
-	}
-
-	public void setStdAge(int stdAge) {
 		this.stdAge = stdAge;
-	}
-
-	public String getStdDepartment() {
-		return stdDepartment;
-	}
-
-	public void setStdDepartment(String stdDepartment) {
 		this.stdDepartment = stdDepartment;
 	}
+
+//	public Student() {
+//	}
+//
+//	
+//
+//	@Override
+//	public String toString() {
+//		return "Student [stdId=" + stdId + ", stsName=" + stdName + ", stdAge=" + stdAge + ", stdDepartment="
+//				+ stdDepartment + "]";
+//	}
+//
+//	public int getStdId() {
+//		return stdId;
+//	}
+//
+//	public void setStdId(int stdId) {
+//		this.stdId = stdId;
+//	}
+//
+//	
+//	
+//
+//	public String getStdName() {
+//		return stdName;
+//	}
+//
+//	public void setStdName(String stdName) {
+//		this.stdName = stdName;
+//	}
+//
+//	public int getStdAge() {
+//		return stdAge;
+//	}
+//
+//	public void setStdAge(int stdAge) {
+//		this.stdAge = stdAge;
+//	}
+//
+//	public String getStdDepartment() {
+//		return stdDepartment;
+//	}
+//
+//	public void setStdDepartment(String stdDepartment) {
+//		this.stdDepartment = stdDepartment;
+//	}
 
 	
 	

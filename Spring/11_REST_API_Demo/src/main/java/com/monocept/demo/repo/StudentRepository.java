@@ -6,5 +6,6 @@ import com.monocept.demo.entity.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Integer>
 {
+
 	
 }
